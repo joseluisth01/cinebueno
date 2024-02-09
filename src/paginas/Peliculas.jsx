@@ -78,3 +78,28 @@ const Peliculas = () => {
 }
 
 export default Peliculas;
+
+/* 
+// Importamos los hooks y los slices necesarios
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure } from '../store/moviesSlice';
+
+// Dentro del componente, accedemos al estado y despachamos acciones según sea necesario
+const Peliculas = () => {
+  const dispatch = useDispatch();
+  const movies = useSelector(state => state.movies.movies);
+  const loading = useSelector(state => state.movies.loading);
+  const error = useSelector(state => state.movies.error);
+
+  useEffect(() => {
+    dispatch(fetchMoviesStart());
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=9b6ecd3e72ca170064c048d4ea07a095')
+      .then(response => response.json())
+      .then(data => dispatch(fetchMoviesSuccess(data.results)))
+      .catch(error => dispatch(fetchMoviesFailure(error.message)));
+  }, [dispatch]);
+
+  // Renderizar películas
+};
+
+*/
